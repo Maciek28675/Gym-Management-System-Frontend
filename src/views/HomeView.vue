@@ -41,7 +41,7 @@
       </div>
     </aside>
     <main class="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in">
-        <header class="header bg-grey-100 shadow py-4 px-4">
+        <header class="header bg-white shadow py-4 px-4">
             <div class="header-content flex items-center flex-row">
                 <div class="flex flex-row px-4">
                     <span class="font-semibold px-2">Today is:</span>
@@ -88,7 +88,7 @@
             <h1 class="font-bold text-2xl text-gray-700">Home</h1>
 
         <div
-          class="flex flex-col flex-grow items-center justify-center border-4 border-gray-500 border-solid bg-white rounded mt-4"
+          class="flex flex-col flex-grow items-center justify-center shadow bg-white rounded mt-4"
         >
             <img src="../assets/barbell.png" class="mx-auto h-20 w-auto"/>
             <span class="font-bold text-4xl text-gray-700 mt-10">Welcome to the Gym Management</span>
