@@ -55,6 +55,19 @@
                     <span class="font-semibold px-2">Notifications:</span>
                     <span class="font-semibold text-orange-600">3</span>
                 </div>
+                <div class="flex flex-row px-4">
+                    <span class="font-semibold px-2">Current session:</span>
+                    <span class="font-semibold text-orange-600">00:14:27</span>
+                </div>
+                <div class="flex flex-row px-4">
+                    <button type="submit" 
+                            class="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 
+                                   text-sm font-semibold text-white shadow-sm hover:bg-orange-500 
+                                   focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+                                    focus-visible:outline-orange-600">
+                      Sign out
+                    </button>
+                </div>
                 <div class="flex ml-auto">
                     <!--<img
                         src="../assets/barbell.png"
@@ -75,7 +88,7 @@
             <h1 class="font-bold text-2xl text-gray-700">Home</h1>
 
         <div
-          class="flex flex-col flex-grow items-center justify-center border-4 border-gray-400 border-dashed bg-white rounded mt-4"
+          class="flex flex-col flex-grow items-center justify-center border-4 border-gray-500 border-solid bg-white rounded mt-4"
         >
             <img src="../assets/barbell.png" class="mx-auto h-20 w-auto"/>
             <span class="font-bold text-4xl text-gray-700 mt-10">Welcome to the Gym Management</span>
