@@ -23,7 +23,7 @@
     export default {
         methods: {
             goToHome() {
-                this.$router.push('/401');
+                this.$router.push('/login');
             }
         }
     };

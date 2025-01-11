@@ -6,12 +6,13 @@
       </div>
   
       <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form class="space-y-6" action="#" method="POST">
+        <form class="space-y-6"  @submit.prevent="handleLogin">
           <div>
             <label for="employee id" class="block text-sm/6 font-medium text-gray-900">Employee ID</label>
             <div class="mt-2">
               <input type="number"
                      min="0"
+                     v-model="employee_id"
                      name="employee id" 
                      autocomplete="off" 
                      required="true" 
@@ -19,14 +20,29 @@
                 />
             </div>
           </div>
-  
+          <div>
+            <div class="flex items-center justify-between">
+              <label for="password" class="block text-sm/6 font-medium text-gray-900">Gym ID</label>
+            </div>
+            <div class="mt-2">
+              <input type="number"
+                     min="0" 
+                     v-model="gym_id"
+                     name="gym_id" 
+                     autocomplete="off" 
+                     required="true" 
+                     class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6"
+               />
+            </div>
+          </div>
           <div>
             <div class="flex items-center justify-between">
               <label for="password" class="block text-sm/6 font-medium text-gray-900">Password</label>
             </div>
             <div class="mt-2">
-              <input type="password" 
-                     name="password" 
+              <input type="password"
+                     name="password"
+                     v-model="password" 
                      autocomplete="current-password" 
                      required="true" 
                      class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6"
@@ -53,3 +69,60 @@
         <img class="absolute bottom-4 left-4 opacity-50 h-16 w-auto" src="../assets/logo_pwr.png">
     </footer>
   </template>
+
+<script>
+  import User from '../models/user';
+
+  export default {
+    name: 'Login',
+
+    data() {
+      return {
+        employee_id: '',
+        gym_id: '',
+        password: '',
+    };
+
+    },
+
+    computed: {
+      loggedIn() {
+        return this.$store.state.auth.status.loggedIn;
+      }
+    },
+
+    created() {
+      if (this.loggedIn) {
+        this.$router.push('/home');
+      }
+    },
+
+    methods: {
+      handleLogin() {
+        const user = {
+          employee_id: this.employee_id,
+          gym_id: this.gym_id,
+          password: this.password,
+        };
+
+        this.loading = true;
+        
+        this.$store.dispatch("auth/login", user).then(
+          () => {
+            this.$router.push("/home");
+          },
+          (error) => {
+            this.loading = false;
+            this.message =
+              (error.response &&
+                error.response.data &&
+                error.response.data.message) ||
+              error.message ||
+              error.toString();
+          }
+        );
+      },
+    }
+
+  }
+</script>
