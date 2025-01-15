@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import MainLayout from '../layouts/MainLayout.vue';
+import HomeView from '../views/HomeView.vue'
 
 const routes = [    
   {
@@ -13,8 +15,14 @@ const routes = [
   },
   {
     path: '/home',
-    name: 'home',
-    component: () => import('../views/HomeView.vue')
+    component: MainLayout,
+    children: [
+      {
+        path: '',
+        name: 'home',
+        component: HomeView,
+      }
+    ]
   },
   {
     path: '/401',
