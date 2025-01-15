@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import MainLayout from '../layouts/MainLayout.vue';
 import HomeView from '../views/HomeView.vue'
+import CheckSubView from '../views/CheckSubView.vue';
 
 const routes = [    
   {
@@ -25,6 +26,17 @@ const routes = [
     ]
   },
   {
+    path: '/checkSubscription',
+    component: MainLayout,
+    children: [
+      {
+        path: '',
+        name: 'checkSubscription',
+        component: CheckSubView,
+      }
+    ]
+  },
+  {
     path: '/401',
     name: 'Unauthorized',
     component: () => import('../views/UnauthorizedView.vue')
@@ -34,6 +46,20 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const publicPages = ['/login', '/401', '/404'];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = localStorage.getItem('user');
+  
+  // trying to access a restricted page + not logged in
+  // redirect to 401
+  if (authRequired && !loggedIn) {
+    next('/401');
+  } else {
+    next();
+  }
 });
 
 export default router

@@ -11,7 +11,8 @@ class AuthService {
                 gym_id: user.gym_id 
             })
             .then(response => {
-                if (response.data.accessToken) {
+                if (response.data.access_token) {
+                    console.log('Storing user in localStorage:', response.data);
                     localStorage.setItem('user', JSON.stringify(response.data))
                 }
 
