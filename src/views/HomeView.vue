@@ -184,7 +184,8 @@
                             class="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 
                                    text-sm font-semibold text-white shadow-sm hover:bg-orange-500 
                                    focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
-                                    focus-visible:outline-orange-600">
+                                    focus-visible:outline-orange-600"
+                            @click="handleLogout"  >
                       Sign out
                     </button>
                 </div>
@@ -198,8 +199,8 @@
                     </svg>
 
                     <span class="flex flex-col ml-2">
-                        <span class="font-semibold leading-none">Anal Omar</span>
-                        <span class="text-gray-500 text-sm leading-none mt-1">Coach</span>
+                        <span class="font-semibold leading-none">{{ user.first_name }} {{ user.last_name }}</span>
+                        <span class="text-gray-500 text-sm leading-none mt-1">{{ user.role }}</span>
                     </span>
                 </div>
             </div>
@@ -223,3 +224,26 @@
     </main>
   </div>
 </template>
+
+<script>
+  export default {
+    name: 'Home',
+    
+    computed: {
+      user() {
+        return this.$store.state.auth.user;
+      }
+    },
+
+    methods: {
+      handleLogout() {
+        this.$store.dispatch("auth/logout").then(
+          () => {
+            this.$router.push("/login");
+          },
+        );
+      }
+    }
+
+  }
+</script>

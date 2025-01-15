@@ -81,6 +81,9 @@
         employee_id: '',
         gym_id: '',
         password: '',
+        role: '',
+        first_name: '',
+        last_name: '',
     };
 
     },
@@ -103,6 +106,9 @@
           employee_id: this.employee_id,
           gym_id: this.gym_id,
           password: this.password,
+          role: this.role,
+          first_name: this.first_name,
+          last_name: this.last_name
         };
 
         this.loading = true;

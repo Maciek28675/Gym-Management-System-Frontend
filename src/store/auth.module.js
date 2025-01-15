@@ -1,4 +1,5 @@
 import AuthService from '../services/auth.service';
+import {jwtDecode} from 'jwt-decode';
 
 const user = JSON.parse(localStorage.getItem('user'));
 
@@ -14,7 +15,8 @@ export const auth = {
         login({commit}, user) {
             return AuthService.login(user).then(
                 user => {
-                    commit('LoginSuccess', user);
+                    const decodedUser = jwtDecode(user['access_token'])
+                    commit('LoginSuccess', decodedUser);
                     return Promise.resolve(user);
                 },
                 error => {

@@ -20,7 +20,7 @@ class AuthService {
 
     }
 
-    logout(user) {
+    logout() {
         // Deactivate JWT
         localStorage.removeItem('user');
     }
