@@ -2,6 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import MainLayout from '../layouts/MainLayout.vue';
 import HomeView from '../views/HomeView.vue'
 import CheckSubView from '../views/CheckSubView.vue';
+import EmployeesView from '../views/EmployeesView.vue';
+import AddEmployee from '../views/AddEmployee.vue';
+import UpdateEmployee from '../views/UpdateEmployee.vue';
 
 const routes = [    
   {
@@ -28,11 +31,48 @@ const routes = [
   {
     path: '/checkSubscription',
     component: MainLayout,
+    meta: {tab: "Check Membership"},
     children: [
       {
         path: '',
         name: 'checkSubscription',
         component: CheckSubView,
+      }
+    ]
+  },
+  {
+    path: '/employees',
+    component: MainLayout,
+    meta: {tab: 'Employees'},
+    children: [
+      {
+        path: '',
+        name: 'employees',
+        component: EmployeesView,
+      }
+    ]
+  },
+  {
+    path: '/AddEmployee',
+    component: MainLayout,
+    meta: {tab: 'Add Employee'},
+    children: [
+      {
+        path: '',
+        name: 'Add Employee',
+        component: AddEmployee,
+      }
+    ]
+  },
+  {
+    path: '/UpdateEmployee',
+    component: MainLayout,
+    meta: {tab: 'Update Employee'},
+    children: [
+      {
+        path: '',
+        name: 'Update Employee',
+        component: UpdateEmployee,
       }
     ]
   },
