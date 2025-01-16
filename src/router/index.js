@@ -41,6 +41,11 @@ const routes = [
     component: () => import("../views/GymsView.vue"),
   },
   {
+    path: "/products",
+    name: "Products",
+    component: () => import("../views/ProductsView.vue"),
+  },
+  {
     path: '/checkSubscription',
     component: MainLayout,
     children: [
@@ -51,6 +56,7 @@ const routes = [
       }
     ]
   },
+  
   {
     path: '/401',
     name: 'Unauthorized',
