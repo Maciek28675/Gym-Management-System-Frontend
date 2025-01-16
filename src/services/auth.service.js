@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {jwtDecode} from 'jwt-decode';
 
 const API_URL = 'http://localhost:5000/api/';
 
@@ -12,8 +13,13 @@ class AuthService {
             })
             .then(response => {
                 if (response.data.access_token) {
-                    console.log('Storing user in localStorage:', response.data);
                     localStorage.setItem('user', JSON.stringify(response.data))
+
+                    const decodedJWT = jwtDecode(response.data.access_token)
+
+                    localStorage.setItem('first_name', decodedJWT["first_name"])
+                    localStorage.setItem('last_name', decodedJWT["last_name"])
+                    localStorage.setItem('role', decodedJWT["role"])
                 }
 
                 return response.data;
@@ -24,6 +30,9 @@ class AuthService {
     logout() {
         // Deactivate JWT
         localStorage.removeItem('user');
+        localStorage.removeItem('first_name');
+        localStorage.removeItem('last_name');
+        localStorage.removeItem('role');
     }
 }
 
