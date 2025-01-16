@@ -28,7 +28,22 @@ const routes = [
     path: '/401',
     name: 'Unauthorized',
     component: () => import('../views/UnauthorizedView.vue')
-  }
+  },
+  {
+    path: "/employees",
+    name: "Employees",
+    component: () => import("../views/EmployeesView.vue"),
+  },  
+  {
+    path: "/subscriptions",
+    name: "Subscriptions",
+    component: () => import("../views/SubscriptionsView.vue"),
+  },
+  {
+    path: "/gyms",
+    name: "Gyms",
+    component: () => import("../views/GymsView.vue"),
+  },
 ]
 
 const router = createRouter({
