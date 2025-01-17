@@ -10,6 +10,11 @@ import SubscriptionsView from '../views/SubscriptionsView.vue';
 import AddSubscription from '../views/AddSubscription.vue';
 import UpdateSubscription from '../views/UpdateSubscription.vue';
 import DeleteSubscription from '../views/DeleteSubscription.vue';
+import ScheduleView from '../views/ScheduleView.vue';
+import UpdateSchedule from '../views/UpdateSchedule.vue';
+import AddSchedule from '../views/AddSchedule.vue';
+import DeleteSchedule from '../views/DeleteSchedule.vue';
+import GymsView from '../views/GymsView.vue';
 
 const routes = [    
   {
@@ -138,6 +143,66 @@ const routes = [
         path: '',
         name: 'Delete Subscription',
         component: DeleteSubscription,
+      }
+    ]
+  },
+  {
+    path: '/Schedule',
+    component: MainLayout,
+    meta: {tab: 'Schedule'},
+    children: [
+      {
+        path: '',
+        name: 'Schedule',
+        component: ScheduleView,
+      }
+    ]
+  },
+  {
+    path: '/UpdateSchedule',
+    component: MainLayout,
+    meta: {tab: 'Update Schedule'},
+    children: [
+      {
+        path: '',
+        name: 'Update Schedule',
+        component: UpdateSchedule,
+      }
+    ]
+  },
+  {
+    path: '/AddSchedule',
+    component: MainLayout,
+    meta: {tab: 'Add Schedule'},
+    children: [
+      {
+        path: '',
+        name: 'Add Schedule',
+        component: AddSchedule,
+      }
+    ]
+  },
+  {
+    path: '/DeleteSchedule',
+    component: MainLayout,
+    meta: {tab: 'Delete Schedule'},
+    children: [
+      {
+        path: '',
+        name: 'Delete Schedule',
+        component: DeleteSchedule,
+      }
+    ]
+  },
+  {
+    path: '/Gyms',
+    component: MainLayout,
+    meta: {tab: 'Gyms'},
+    children: [
+      {
+        path: '',
+        name: 'Gyms',
+        component: GymsView,
       }
     ]
   },
