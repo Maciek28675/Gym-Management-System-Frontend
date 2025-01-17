@@ -5,6 +5,11 @@ import CheckSubView from '../views/CheckSubView.vue';
 import EmployeesView from '../views/EmployeesView.vue';
 import AddEmployee from '../views/AddEmployee.vue';
 import UpdateEmployee from '../views/UpdateEmployee.vue';
+import DeleteEmployee from '../views/DeleteEmployee.vue';
+import SubscriptionsView from '../views/SubscriptionsView.vue';
+import AddSubscription from '../views/AddSubscription.vue';
+import UpdateSubscription from '../views/UpdateSubscription.vue';
+import DeleteSubscription from '../views/DeleteSubscription.vue';
 
 const routes = [    
   {
@@ -73,6 +78,66 @@ const routes = [
         path: '',
         name: 'Update Employee',
         component: UpdateEmployee,
+      }
+    ]
+  },
+  {
+    path: '/DeleteEmployee',
+    component: MainLayout,
+    meta: {tab: 'Delete Employee'},
+    children: [
+      {
+        path: '',
+        name: 'Delete Employee',
+        component: DeleteEmployee,
+      }
+    ]
+  },
+  {
+    path: '/subscriptions',
+    component: MainLayout,
+    meta: {tab: 'Subscriptions'},
+    children: [
+      {
+        path: '',
+        name: 'Subscriptions',
+        component: SubscriptionsView,
+      }
+    ]
+  },
+  {
+    path: '/AddSubscription',
+    component: MainLayout,
+    meta: {tab: 'Add Subscription'},
+    children: [
+      {
+        path: '',
+        name: 'Add Subscription',
+        component: AddSubscription,
+      }
+    ]
+  },
+  {
+    path: '/UpdateSubscription',
+    component: MainLayout,
+    meta: {tab: 'Update Subscription'},
+    children: [
+      {
+        path: '',
+        name: 'Update Subscription',
+        component: UpdateSubscription,
+      }
+    ]
+  },
+  {
+    path: '/DeleteSubscription',
+    component: MainLayout,
+    meta: {tab: 'Delete Subscription'},
+    children: [
+      {
+        path: '',
+        name: 'Delete Subscription',
+        component: DeleteSubscription,
       }
     ]
   },
