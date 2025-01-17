@@ -5,6 +5,13 @@ import CheckSubView from '../views/CheckSubView.vue';
 import EmployeesView from '../views/EmployeesView.vue';
 import AddEmployee from '../views/AddEmployee.vue';
 import UpdateEmployee from '../views/UpdateEmployee.vue';
+import UpdateCustomer from '../views/UpdateCustomer.vue';
+import UpdateProduct from '../views/UpdateProduct.vue';
+import AddCustomer from '../views/AddCustomer.vue';
+import AddGymClass from '../views/AddGymClass.vue';
+import DeleteCustomer from '../views/DeleteCustomer.vue';
+import UpdateGymClass from '../views/UpdateGymClass.vue';
+import GymClassesView from '../views/GymClassesView.vue';
 import DeleteEmployee from '../views/DeleteEmployee.vue';
 import SubscriptionsView from '../views/SubscriptionsView.vue';
 import AddSubscription from '../views/AddSubscription.vue';
@@ -80,6 +87,101 @@ const routes = [
         component: UpdateEmployee,
       }
     ]
+  },
+  {
+    path: '/UpdateCustomer',
+    component: MainLayout,
+    meta: {tab: 'Update Customer'},
+    children: [
+      {
+        path: '',
+        name: 'Update Customer',
+        component: UpdateCustomer,
+      }
+    ]
+  },
+  {
+    path: '/UpdateProduct',
+    component: MainLayout,
+    meta: {tab: 'Update Product'},
+    children: [
+      {
+        path: '',
+        name: 'Update Product',
+        component: UpdateProduct,
+      }
+    ]
+  },
+  {
+    path: '/AddCustomer',
+    component: MainLayout,
+    meta: {tab: 'Add Customer'},
+    children: [
+      {
+        path: '',
+        name: 'Add Customer',
+        component: AddCustomer,
+      }
+    ]
+  },
+  {
+    path: '/AddGymClass',
+    component: MainLayout,
+    meta: {tab: 'Add GymClass'},
+    children: [
+      {
+        path: '',
+        name: 'Add GymClass',
+        component: AddGymClass,
+      }
+    ]
+  },
+  {
+    path: '/DeleteCustomer',
+    component: MainLayout,
+    meta: {tab: 'Delete Customer'},
+    children: [
+      {
+        path: '',
+        name: 'Delete Customer',
+        component: DeleteCustomer,
+      }
+    ]
+  },
+  {
+    path: '/DeleteGymClass',
+    component: MainLayout,
+    meta: {tab: 'Delete GymClass'},
+    children: [
+      {
+        path: '',
+        name: 'Delete GymClass',
+        component: DeleteGymClass,
+      }
+    ]
+  },
+  {
+    path: '/UpdateGymClass',
+    component: MainLayout,
+    meta: {tab: 'Update GymClass'},
+    children: [
+      {
+        path: '',
+        name: 'Update GymClass',
+        component: UpdateGymClass,
+      }
+    ]
+  },
+  {
+    path: '/gymclasses',
+    component: MainLayout,
+    meta: {tab: 'GymClasses'},
+    children: [
+      {
+        path: '',
+        name: 'gymclasses',
+        component: GymClassesView,
+     }
   },
   {
     path: '/DeleteEmployee',
