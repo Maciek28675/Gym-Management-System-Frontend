@@ -187,6 +187,7 @@ const routes = [
         name: 'gymclasses',
         component: GymClassesView,
      }
+    ]
   },
   {
     path: '/DeleteEmployee',
