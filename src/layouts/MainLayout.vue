@@ -137,7 +137,7 @@
                             d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
                     </svg>
                   </span>
-                  <span class="ml-3">Classes</span>
+                  <router-link to='/gymclasses'class="ml-3">Classes</router-link>
                 </a>
               </li>
               <li class="my-px">
@@ -163,20 +163,13 @@
                 <div class="header-content flex items-center flex-row">
                     <div class="flex flex-row px-4">
                         <span class="font-semibold px-2">Today is:</span>
-                        <span class="font-semibold text-orange-600">04/01/2025</span>
+                        <span class="font-semibold text-orange-600">{{ today }}</span>
                     </div>
                     <div class="flex flex-row px-4">
                         <span class="font-semibold px-2">Gym:</span>
-                        <span class="font-semibold text-orange-600">Sky Tower</span>
+                        <span class="font-semibold text-orange-600">{{ currentGym }}</span>
                     </div>
-                    <div class="flex flex-row px-4">
-                        <span class="font-semibold px-2">Notifications:</span>
-                        <span class="font-semibold text-orange-600">3</span>
-                    </div>
-                    <div class="flex flex-row px-4">
-                        <span class="font-semibold px-2">Current session:</span>
-                        <span class="font-semibold text-orange-600">00:14:27</span>
-                    </div>
+                  
                     <div class="flex flex-row px-4">
                         <button type="submit" 
                                 class="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 
@@ -220,9 +213,27 @@
     </template>
     
     <script>
+      import axios from "axios";
+      import authHeader from "../services/auth-header";
+
       export default {
         name: 'Home',
+
+        data() {
+          return {
+              today: "",
+              currentGym: null,
+            };
+        },
         
+        // created() {
+        //   const today = new Date();
+        //   const dd = String(today.getDate()).padStart(2, '0');
+        //   const mm = String(today.getMonth() + 1).padStart(2, '0');
+        //   const yyyy = today.getFullYear();
+        //   this.today = `${dd}/${mm}/${yyyy}`;
+        // },
+
         computed: {
           user() {
             const first_name = localStorage.getItem("first_name");
@@ -234,9 +245,19 @@
 
           currentTab() {
             return this.$route.meta.tab;
-          }
+          },
         },
-    
+        
+        mounted() {
+          const today = new Date();
+          const dd = String(today.getDate()).padStart(2, "0");
+          const mm = String(today.getMonth() + 1).padStart(2, "0");
+          const yyyy = today.getFullYear();
+          this.today = `${dd}/${mm}/${yyyy}`;
+
+          this.getGymName();
+        },
+
         methods: {
           handleLogout() {
             this.$store.dispatch("auth/logout").then(
@@ -244,6 +265,21 @@
                 this.$router.push("/login");
               },
             );
+          },
+
+          async getGymName() {
+            try {
+              const current_gym_id = localStorage.getItem("gym_id")
+
+              const response = await axios.get(`http://localhost:5000/api/get_gym/${current_gym_id}`, {
+                headers: authHeader(),
+              });
+
+              this.currentGym = response.data["name"];
+
+            } catch(error) {
+              this.currentGym = "failed to load"
+            }
           }
         }
     

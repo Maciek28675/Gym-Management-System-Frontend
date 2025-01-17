@@ -20,6 +20,7 @@ class AuthService {
                     localStorage.setItem('first_name', decodedJWT["first_name"])
                     localStorage.setItem('last_name', decodedJWT["last_name"])
                     localStorage.setItem('role', decodedJWT["role"])
+                    localStorage.setItem('gym_id', decodedJWT["gym_id"])
                 }
 
                 return response.data;
@@ -33,6 +34,7 @@ class AuthService {
         localStorage.removeItem('first_name');
         localStorage.removeItem('last_name');
         localStorage.removeItem('role');
+        localStorage.removeItem('gym_id');
     }
 }
 

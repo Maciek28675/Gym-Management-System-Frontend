@@ -22,6 +22,7 @@ import UpdateSchedule from '../views/UpdateSchedule.vue';
 import AddSchedule from '../views/AddSchedule.vue';
 import DeleteSchedule from '../views/DeleteSchedule.vue';
 import GymsView from '../views/GymsView.vue';
+import DeleteGymClass from '../views/DeleteGymClass.vue'
 
 const routes = [    
   {
