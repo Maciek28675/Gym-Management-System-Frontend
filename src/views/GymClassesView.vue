@@ -12,6 +12,12 @@
             />
           </div>
           <button class="bg-orange-600 text-white font-semibold px-4 py-2 rounded shadow">
+            <router-link to="/EnrollCustomer">Enroll Customer</router-link>
+          </button>
+          <button class="bg-orange-600 text-white font-semibold px-4 py-2 rounded shadow">
+            <router-link to="/UenrollCustomer">Uenroll Customer</router-link>
+          </button>
+          <button class="bg-orange-600 text-white font-semibold px-4 py-2 rounded shadow">
             <router-link to="/AddGymClass">Add Gym Class</router-link>
           </button>
           <button class="bg-blue-500 text-white px-4 py-2 rounded shadow">

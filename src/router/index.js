@@ -26,7 +26,11 @@ import DeleteGymClass from '../views/DeleteGymClass.vue'
 import AddGym from '../views/AddGym.vue';
 import UpdateGym from '../views/UpdateGym.vue';
 import DeleteGym from '../views/DeleteGym.vue';
-
+import CustomersView from '../views/CustomersView.vue';
+import ProductsView from '../views/ProductsView.vue';
+import EnrollCustomer from '../views/EnrollCustomer.vue';
+import UnenrollCustomer from '../views/UnenrollCustomer.vue';
+import SellProduct from '../views/SellProduct.vue';
 const routes = [    
   {
     path: '/login',
@@ -394,6 +398,18 @@ const routes = [
         path: '',
         name: 'Uenroll Customer',
         component: UenrollCustomer,
+      }
+    ]
+  },
+  {
+    path: '/SellProduct',
+    component: MainLayout,
+    meta: {tab: 'Sell Product'},
+    children: [
+      {
+        path: '',
+        name: 'Sell Product',
+        component: SellProduct,
       }
     ]
   },
