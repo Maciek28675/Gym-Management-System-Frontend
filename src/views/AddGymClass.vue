@@ -58,7 +58,7 @@
         },
 
         methods: {
-            async addCustomer() {
+            async addGymClass() {
                 try {
                     console.log('test')
                     const updatedFields = Object.fromEntries(
@@ -68,7 +68,7 @@
                         );
                     
                     console.log(updatedFields)
-                    const response = await axios.post(`http://localhost:5000/api/add_gymclass/${this.formData.gymclass_id}`, updatedFields, { headers: authHeader() });
+                    const response = await axios.post(`http://localhost:5000/api/add_gymclass`, updatedFields, { headers: authHeader() });
                     
                     if(response.status == 200) {
                         this.message = response.data.msg

@@ -17,7 +17,9 @@
           <button class="bg-blue-500 text-white px-4 py-2 rounded shadow">
             <router-link to="/UpdateGymClass">Modify</router-link>
           </button>
-          <button class="bg-red-500 text-white px-4 py-2 rounded shadow">Delete</button>
+          <button class="bg-red-500 text-white px-4 py-2 rounded shadow">
+            <router-link to="/DeleteGymClass">Delete</router-link>
+          </button>
         </div>
       </div>
       <div class="overflow-auto max-h-96" @scroll="onScroll">
