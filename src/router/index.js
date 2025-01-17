@@ -12,6 +12,11 @@ import AddGymClass from '../views/AddGymClass.vue';
 import DeleteCustomer from '../views/DeleteCustomer.vue';
 import UpdateGymClass from '../views/UpdateGymClass.vue';
 import GymClassesView from '../views/GymClassesView.vue';
+import DeleteEmployee from '../views/DeleteEmployee.vue';
+import SubscriptionsView from '../views/SubscriptionsView.vue';
+import AddSubscription from '../views/AddSubscription.vue';
+import UpdateSubscription from '../views/UpdateSubscription.vue';
+import DeleteSubscription from '../views/DeleteSubscription.vue';
 
 const routes = [    
   {
@@ -176,6 +181,65 @@ const routes = [
         path: '',
         name: 'gymclasses',
         component: GymClassesView,
+     }
+  },
+  {
+    path: '/DeleteEmployee',
+    component: MainLayout,
+    meta: {tab: 'Delete Employee'},
+    children: [
+      {
+        path: '',
+        name: 'Delete Employee',
+        component: DeleteEmployee,
+      }
+    ]
+  },
+  {
+    path: '/subscriptions',
+    component: MainLayout,
+    meta: {tab: 'Subscriptions'},
+    children: [
+      {
+        path: '',
+        name: 'Subscriptions',
+        component: SubscriptionsView,
+      }
+    ]
+  },
+  {
+    path: '/AddSubscription',
+    component: MainLayout,
+    meta: {tab: 'Add Subscription'},
+    children: [
+      {
+        path: '',
+        name: 'Add Subscription',
+        component: AddSubscription,
+      }
+    ]
+  },
+  {
+    path: '/UpdateSubscription',
+    component: MainLayout,
+    meta: {tab: 'Update Subscription'},
+    children: [
+      {
+        path: '',
+        name: 'Update Subscription',
+        component: UpdateSubscription,
+      }
+    ]
+  },
+  {
+    path: '/DeleteSubscription',
+    component: MainLayout,
+    meta: {tab: 'Delete Subscription'},
+    children: [
+      {
+        path: '',
+        name: 'Delete Subscription',
+        component: DeleteSubscription,
       }
     ]
   },

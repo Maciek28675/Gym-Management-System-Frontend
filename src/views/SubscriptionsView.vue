@@ -12,13 +12,13 @@
             />
           </div>
           <button class="bg-orange-600 text-white font-semibold px-4 py-2 rounded shadow">
-            <router-link to="/AddEmployee">Add Employee</router-link>
+            <router-link to="/AddSubscription">Add Subscription</router-link>
           </button>
-          <button class="bg-blue-500 text-white px-4 py-2 rounded shadow">
-            <router-link to="/UpdateEmployee">Modify</router-link>
+          <button class="bg-blue-500 text-white px-4 py-2 rounded shadow">  
+            <router-link to="/UpdateSubscription">Modify</router-link>
           </button>
           <button class="bg-red-500 text-white px-4 py-2 rounded shadow">
-            <router-link to="/DeleteEmployee">Delete</router-link>
+            <router-link to="/DeleteSubscription">Delete</router-link>
           </button>
         </div>
       </div>
@@ -27,26 +27,24 @@
           <thead>
             <tr class="bg-gray-200 text-left">
               <th class="px-4 py-2">ID</th>
-              <th class="px-4 py-2">First Name</th>
-              <th class="px-4 py-2">Last Name</th>
-              <th class="px-4 py-2">Gym ID</th>
-              <th class="px-4 py-2">Role</th>
+              <th class="px-4 py-2">Type</th>
+              <th class="px-4 py-2">Price</th>
+              <th class="px-4 py-2">Period</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="employee in filteredEmployees" :key="employee.id" class="hover:bg-gray-100">
-              <td class="px-4 py-2">{{ employee.employee_id }}</td>
-              <td class="px-4 py-2">{{ employee.first_name }}</td>
-              <td class="px-4 py-2">{{ employee.last_name }}</td>
-              <td class="px-4 py-2">{{ employee.gym_id }}</td>
-              <td class="px-4 py-2">{{ employee.role }}</td>
+            <tr v-for="subscription in filteredSubscriptions" :key="subscription.id" class="hover:bg-gray-100">
+              <td class="px-4 py-2">{{ subscription.subscription_id }}</td> 
+              <td class="px-4 py-2">{{ subscription.type }}</td>
+              <td class="px-4 py-2">{{ subscription.price }}</td>
+              <td class="px-4 py-2">{{ subscription.period }}</td>
             </tr>
           </tbody>
         </table>
       </div>
       <div class="flex items-center justify-center">
         <button
-          @click="loadEmployees"
+          @click="loadSubscriptions"
           :disabled="!hasMore"
           class="mt-4 px-4 py-2 bg-orange-600 text-white rounded font-semibold hover:bg-orange-500 active:bg-orange-400"
         >
@@ -64,13 +62,13 @@
   import authHeader from "../services/auth-header";
   
   export default {
-    name: "Employees",
+    name: "Subscriptions",
 
     data() {
       return {
         searchQuery: "",
-        employees: [],
-        numberOfEmployeesToLoad: 5,
+        subscriptions: [],
+        numberOfSubscriptionsToLoad: 5,
         offset: 0,
         hasMore: true,
         message: '',
@@ -79,9 +77,9 @@
     },
 
     computed: {
-      filteredEmployees() {
-        return this.employees.filter((employee) =>
-          Object.values(employee)
+      filteredSubscriptions() {
+        return this.subscriptions.filter((subscription) =>
+          Object.values(subscription)
             .join(" ")
             .toLowerCase()
             .includes(this.searchQuery.toLowerCase())
@@ -90,23 +88,23 @@
     },
 
     methods: {
-      async loadEmployees() {
+      async loadSubscriptions() {
         try {
-          const response = await axios.get(`http://localhost:5000/api/get_all_employees`,
+          const response = await axios.get(`http://localhost:5000/api/get_all_subscriptions`,
             { headers: authHeader(),
               params: {
-                limit: this.numberOfEmployeesToLoad,
+                limit: this.numberOfsubscriptionsToLoad,
                 offset: this.offset
               }
             });
             
             if(response.status == 200) {
-              this.employees.push(...response.data);
-              this.offset += this.numberOfEmployeesToLoad;
+              this.subscriptions.push(...response.data);
+              this.offset += this.numberOfSubscriptionsToLoad;
 
-              if (response.data.length < this.numberOfEmployeesToLoad) {
+              if (response.data.length < this.numberOfSubscriptionsToLoad) {
                 this.hasMore = false;
-                this.message = "No more employees to load";
+                this.message = "No more subscriptions to load";
                 this.messageClass = "bg-blue-100 text-blue-800";
               }
             }
