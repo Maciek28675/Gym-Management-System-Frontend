@@ -61,6 +61,9 @@
           <a href="#" class="font-semibold text-orange-600 hover:text-orange-500">Register first manager account</a>
         </p>
       </div>
+      <div v-if="message" :class="messageClass" class="flex items-center justify-center text-center font-semibold mt-4 rounded-lg  h-10">
+        {{ message }}
+      </div>
     </div>
     <footer>
         <cite class="absolute bottom-4 right-4 text-sm text-gray-400">
@@ -84,6 +87,8 @@
         role: '',
         first_name: '',
         last_name: '',
+        message: '',
+        messageClass: '',
     };
 
     },
@@ -125,6 +130,8 @@
                 error.response.data.message) ||
               error.message ||
               error.toString();
+
+            this.messageClass = "bg-red-100 text-red-800";
           }
         );
       },

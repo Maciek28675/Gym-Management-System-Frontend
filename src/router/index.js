@@ -23,6 +23,9 @@ import AddSchedule from '../views/AddSchedule.vue';
 import DeleteSchedule from '../views/DeleteSchedule.vue';
 import GymsView from '../views/GymsView.vue';
 import DeleteGymClass from '../views/DeleteGymClass.vue'
+import AddGym from '../views/AddGym.vue';
+import UpdateGym from '../views/UpdateGym.vue';
+import DeleteGym from '../views/DeleteGym.vue';
 
 const routes = [    
   {
@@ -307,6 +310,42 @@ const routes = [
         path: '',
         name: 'Gyms',
         component: GymsView,
+      }
+    ]
+  },
+  {
+    path: '/AddGym',
+    component: MainLayout,
+    meta: {tab: 'Add Gym'},
+    children: [
+      {
+        path: '',
+        name: 'Add Gym',
+        component: AddGym,
+      }
+    ]
+  },
+  {
+    path: '/UpdateGym',
+    component: MainLayout,
+    meta: {tab: 'Update Gym'},
+    children: [
+      {
+        path: '',
+        name: 'Update Gym',
+        component: UpdateGym,
+      }
+    ]
+  },
+  {
+    path: '/DeleteGym',
+    component: MainLayout,
+    meta: {tab: 'Delete Gym'},
+    children: [
+      {
+        path: '',
+        name: 'Delete Gym',
+        component: DeleteGym,
       }
     ]
   },
