@@ -52,7 +52,7 @@
     },
 
     methods: {
-      async enrollCustomer() {
+      async uenrollCustomer() {
         if(!this.customerID || !this.gymclassID) {
           this.message = "Please enter a valid customer ID and gym class ID.";
           this.messageClass = "text-red-500";
