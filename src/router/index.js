@@ -30,7 +30,11 @@ import CustomersView from '../views/CustomersView.vue'
 import EnrollCustomer from '../views/EnrollCustomer.vue'
 import ProductsView from '../views/ProductsView.vue'
 import UnenrollCustomer from '../views/UnenrollCustomer.vue';
-
+import CustomersView from '../views/CustomersView.vue';
+import ProductsView from '../views/ProductsView.vue';
+import EnrollCustomer from '../views/EnrollCustomer.vue';
+import UnenrollCustomer from '../views/UnenrollCustomer.vue';
+import SellProduct from '../views/SellProduct.vue';
 const routes = [    
   {
     path: '/login',
@@ -398,6 +402,18 @@ const routes = [
         path: '',
         name: 'Uenroll Customer',
         component: UnenrollCustomer,
+      }
+    ]
+  },
+  {
+    path: '/SellProduct',
+    component: MainLayout,
+    meta: {tab: 'Sell Product'},
+    children: [
+      {
+        path: '',
+        name: 'Sell Product',
+        component: SellProduct,
       }
     ]
   },

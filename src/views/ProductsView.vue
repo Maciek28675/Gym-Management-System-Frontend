@@ -11,6 +11,9 @@
               class="border px-3 py-2 rounded shadow-sm"
             />
           </div>
+          <button class="bg-red-500 text-white px-4 py-2 rounded shadow">
+            <router-link to="/SellProduct">Sell Product</router-link>
+          </button>
           <button class="bg-orange-600 text-white font-semibold px-4 py-2 rounded shadow">
             <router-link to="/AddProduct">Add Product</router-link>
           </button>
