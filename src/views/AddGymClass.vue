@@ -42,16 +42,13 @@
     export default {
         data() {
             return {
-                formData: {
-                    gymclass_id: 0,
-                    employee_id: 0,
-                    gym_id: 0,
-                    name: "",
-                    max_people: 0,
-                    time: "",
-                    day_otw: "",
-                    signed_people: 0
-                },
+                employee_id: 0,
+                gym_id: 0,
+                name: "",
+                max_people: 0,
+                time: "",
+                day_otw: "",
+                signed_people: 0,
                 message: "",
                 messageClass: "",
             }
@@ -70,14 +67,14 @@
                     console.log(updatedFields)
                     const response = await axios.post(`http://localhost:5000/api/add_gymclass`, updatedFields, { headers: authHeader() });
                     
-                    if(response.status == 200) {
+                    if(response.status == 201) {
                         this.message = response.data.msg
                         this.messageClass = "bg-green-100 text-green-800"
                         this.resetForm();
                     }
 
                 } catch(error) {
-                    if (error.response?.status == 403){
+                    if (error.response.status == 403){
                         this.$router.push("/401");
                     }
                     if(error.response){
@@ -87,14 +84,13 @@
                 }
             },
             resetForm() {
-                this.formData.gymclass_id = 0,
-                this.formData.employee_id = 0,
-                this.formData.gym_id = 0,
-                this.formData.name = "",
-                this.formData.max_people = 0,
-                this.formData.time = "",
-                this.formData.day_otw = "",
-                this.formData.signed_people = 0
+                this.formData.employee_id = 0;
+                this.formData.gym_id = 0;
+                this.formData.name = "";
+                this.formData.max_people = 0;
+                this.formData.time = "";
+                this.formData.day_otw = "";
+                this.formData.signed_people = 0;
             },
         }
     }

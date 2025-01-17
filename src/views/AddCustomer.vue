@@ -71,7 +71,7 @@
                     }
 
                 } catch(error) {
-                    if (error.response?.status == 403){
+                    if (error.response.status == 403){
                         this.$router.push("/401");
                     }
                     if(error.response){
@@ -81,15 +81,13 @@
                 }
             },
             resetForm() {
-                this.formData.customer_id = 0,
-                this.formData.subscription_id = 0,
-                this.formData.first_name = "",
-                this.formData.last_name = "",
-                this.formData.address = "",
-                this.formData.phone_number = "",
-                this.formData.sub_purchase_date = ""
+                this.subscription_id = 0;
+                this.first_name = "";
+                this.last_name = "";
+                this.address = "";
+                this.phone_number = "";
+                this.sub_purchase_date = "";
             },
         }
     }
 </script>
-
