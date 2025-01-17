@@ -350,6 +350,54 @@ const routes = [
     ]
   },
   {
+    path: '/CustomersView',
+    component: MainLayout,
+    meta: {tab: 'Customers View'},
+    children: [
+      {
+        path: '',
+        name: 'Customers View',
+        component: CustomersView,
+      }
+    ]
+  },
+  {
+    path: '/EnrollCustomer',
+    component: MainLayout,
+    meta: {tab: 'Enroll Customer'},
+    children: [
+      {
+        path: '',
+        name: 'Enroll Customer',
+        component: EnrollCustomer,
+      }
+    ]
+  },
+  {
+    path: '/ProductsView',
+    component: MainLayout,
+    meta: {tab: 'Products View'},
+    children: [
+      {
+        path: '',
+        name: 'Products View',
+        component: ProductsView,
+      }
+    ]
+  },
+  {
+    path: '/UennrollCustomer',
+    component: MainLayout,
+    meta: {tab: 'Uenroll Customer'},
+    children: [
+      {
+        path: '',
+        name: 'Uenroll Customer',
+        component: UenrollCustomer,
+      }
+    ]
+  },
+  {
     path: '/401',
     name: 'Unauthorized',
     component: () => import('../views/UnauthorizedView.vue')
