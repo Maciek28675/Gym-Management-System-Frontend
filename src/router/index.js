@@ -398,6 +398,18 @@ const routes = [
     ]
   },
   {
+    path: '/SellProduct',
+    component: MainLayout,
+    meta: {tab: 'Sell Product'},
+    children: [
+      {
+        path: '',
+        name: 'Sell Product',
+        component: SellProduct,
+      }
+    ]
+  },
+  {
     path: '/401',
     name: 'Unauthorized',
     component: () => import('../views/UnauthorizedView.vue')
