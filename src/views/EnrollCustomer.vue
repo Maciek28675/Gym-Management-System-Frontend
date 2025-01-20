@@ -61,8 +61,11 @@
 
         try {
           console.log("clicked")
+          const data = {
+                        customerID: this.customerID
+                    }
           const response = await axios.post(
-            `http://localhost:5000/api/enroll_customer/${this.customerID}`,
+            `http://localhost:5000/api/enroll_customer/${this.gymclassID}`, data,
             { headers: authHeader() }
           );
 

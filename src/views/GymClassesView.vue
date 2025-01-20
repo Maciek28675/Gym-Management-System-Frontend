@@ -15,7 +15,7 @@
             <router-link to="/EnrollCustomer">Enroll Customer</router-link>
           </button>
           <button class="bg-orange-600 text-white font-semibold px-4 py-2 rounded shadow">
-            <router-link to="/UenrollCustomer">Uenroll Customer</router-link>
+            <router-link to="/UnenrollCustomer">Uenroll Customer</router-link>
           </button>
           <button class="bg-orange-600 text-white font-semibold px-4 py-2 rounded shadow">
             <router-link to="/AddGymClass">Add Gym Class</router-link>

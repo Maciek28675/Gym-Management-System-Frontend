@@ -53,10 +53,10 @@
 
         try {
           console.log("clicked")
-          const response = await axios.put(
-            `http://localhost:5000/api/sell_product/${this.productID}`,
-            { headers: authHeader() }
-          );
+          const data = {
+                        productID: this.productID
+                    }
+          const response = await axios.put(`http://localhost:5000/api/sell_product/${this.productID}`, data, { headers: authHeader() });
 
           if (response.status === 200) {
             this.message = response.data.msg;

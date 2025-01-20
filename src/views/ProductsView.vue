@@ -43,7 +43,6 @@
               <td class="px-4 py-2">{{ product.product_id }}</td> 
               <td class="px-4 py-2">{{ product.gym_id }}</td>
               <td class="px-4 py-2">{{ product.name }}</td> 
-              <td class="px-4 py-2">{{ product.last_name }}</td>
               <td class="px-4 py-2">{{ product.quantity_in_stock }}</td>
               <td class="px-4 py-2">{{ product.quantity_sold }}</td>   
               <td class="px-4 py-2">{{ product.price }}</td>
